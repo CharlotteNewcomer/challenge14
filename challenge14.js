@@ -123,6 +123,7 @@ function clearAll(){
 
 function setup(topic){
 
+    clearInterval(timer);
     let controlBtns=['Reset', 'Restart'];
     const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
     count = 0;
@@ -160,6 +161,15 @@ function setup(topic){
 
     reset.addEventListener('click', reSet );
     restart.addEventListener('click', function(){setup(topic)} );
+
+    timer= setInterval(function(){ 
+        time++;
+        var seconds = time%60;
+        if (seconds<10){
+            seconds = "0"+seconds;
+        };
+        clock.textContent = parseInt(time/60)+":"+seconds;
+    }, 1000);
 
     //randomizing cards- from Alexander  (https://www.w3resource.com/javascript-exercises/javascript-array-exercise-17.php)... 
     //seems to work better than w3schools suggestion-which didn't mix it up too well
@@ -217,16 +227,10 @@ function play(topic){
     } else {
         scoringSection.appendChild(clock);
         setup(topic);
-        timer= setInterval(function(){ 
-            time++;
-            var seconds = time%60;
-            if (seconds<10){
-                seconds = "0"+seconds;
-            };
-            clock.textContent = parseInt(time/60)+":"+seconds;
-        }, 1000);
     }
 }
+
+
 
 function turn(img, value, topic){
  
@@ -261,7 +265,7 @@ function turn(img, value, topic){
                     match++;
                     break;
                 case false:
-                    setTimeout(function(){flip(topic)}, 750);
+                    setTimeout(function(){flip(topic)}, 1000);
                     break;
                 default: 
                     console.log ('error');
@@ -279,8 +283,7 @@ function turn(img, value, topic){
     }
 
     if (match===10){
-        clearInterval(timer);
-        
+        clearInterval(timer); 
     }
 
     matched.textContent = "Matches: "+match;
