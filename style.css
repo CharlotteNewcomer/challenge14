@@ -43,20 +43,16 @@ h1{
     grid-template-rows: auto;
 }
 
-.card{
- border: 1px solid black;
- border-radius: 10px; 
- cursor:pointer;
- text-align: center;
-
-
-}
 .box {
+    border: 1px solid black;
+    border-radius: 10px; 
+    cursor:pointer;
+    text-align: center;
     background-image: whitesmoke;
     margin: 10px;
 }
 
-.box > img {
+ img {
     width: 100%;
 }
 
@@ -74,16 +70,35 @@ h1{
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: auto;
     margin: 20px;
+    font-size: 2.5vh;
 }
 .option{
     display: flex;
     flex-direction: row;
     margin: 10px;
+    font-size: 2.5vh;
 }
 .selected{
-    border: 1px solid yellow;
+    border: 1px solid blue;
     border-radius: 30%;
 }
-img:hover {
-   
+
+footer {
+    font-size: 10px;
 }
+/* following css is from  Hover.css (http://ianlunn.github.io/Hover/)*/
+.hvr-grow {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+  }
+  .hvr-grow:hover, .hvr-grow:focus, .hvr-grow:active {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
