@@ -261,7 +261,7 @@ function turn(img, value, topic){
                     match++;
                     break;
                 case false:
-                    setTimeout(function(){flip(topic)}, 500);
+                    setTimeout(function(){flip(topic)}, 750);
                     break;
                 default: 
                     console.log ('error');
